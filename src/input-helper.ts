@@ -26,6 +26,7 @@ export function getInputs(): IGitSourceSettings[] {
     // Qualified repository
     var qualifiedRepository = repo
     core.debug(`qualified repository = '${qualifiedRepository}'`)
+    core.debug(`Hey there..`)
     var splitRepository = qualifiedRepository.split('/')
     if (
       splitRepository.length !== 2 ||
