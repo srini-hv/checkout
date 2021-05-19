@@ -4,10 +4,11 @@ import * as gitSourceProvider from './git-source-provider'
 import * as inputHelper from './input-helper'
 import * as path from 'path'
 import * as stateHelper from './state-helper'
+import {IGitSourceSettings} from './git-source-settings'
 
 async function run(): Promise<void> {
   try {
-    const sourceSettings = inputHelper.getInputs()
+    const sourceSettingsList = inputHelper.getInputs()
 
     try {
       // Register problem matcher
@@ -18,7 +19,9 @@ async function run(): Promise<void> {
       )
 
       // Get sources
-      await gitSourceProvider.getSource(sourceSettings)
+      for(var sourceSettings of sourceSettingsList){
+        await gitSourceProvider.getSource(sourceSettings)
+      }
     } finally {
       // Unregister problem matcher
       coreCommand.issueCommand('remove-matcher', {owner: 'checkout-git'}, '')

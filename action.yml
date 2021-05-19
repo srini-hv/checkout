@@ -1,7 +1,7 @@
 name: 'Checkout'
 description: 'Checkout a Git repository at a particular version'
 inputs:
-  repository:
+  repositories:
     description: 'Repository name with owner. For example, actions/checkout'
     default: ${{ github.repository }}
   ref:
