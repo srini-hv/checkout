@@ -24,9 +24,7 @@ export function getInputs(): IGitSourceSettings[] {
     fsHelper.directoryExistsSync(githubWorkspacePath, true)
 
     // Qualified repository
-    var qualifiedRepository =
-      repo ||
-      `${github.context.repo.owner}/${github.context.repo.repo}`
+    var qualifiedRepository = repo
     core.debug(`qualified repository = '${qualifiedRepository}'`)
     var splitRepository = qualifiedRepository.split('/')
     if (
