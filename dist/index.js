@@ -11104,11 +11104,13 @@ function getInputs() {
         result.repositoryOwner = splitRepository[0];
         result.repositoryName = splitRepository[1];
         // Repository path
-        result.repositoryPath = core.getInput('path') || '.';
+        var parentRepositoryPath = core.getInput('path') || '.';
+        result.repositoryPath = parentRepositoryPath + splitRepository[1];
         result.repositoryPath = path.resolve(githubWorkspacePath, result.repositoryPath);
         if (!(result.repositoryPath + path.sep).startsWith(githubWorkspacePath + path.sep)) {
             throw new Error(`Repository path '${result.repositoryPath}' is not under '${githubWorkspacePath}'`);
         }
+        core.debug(`Custom Repository Path: '${result.repositoryPath}'`);
         // Workflow repository?
         var isWorkflowRepository = qualifiedRepository.toUpperCase() ===
             `${github.context.repo.owner}/${github.context.repo.repo}`.toUpperCase();

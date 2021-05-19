@@ -26,7 +26,6 @@ export function getInputs(): IGitSourceSettings[] {
     // Qualified repository
     var qualifiedRepository = repo
     core.debug(`qualified repository = '${qualifiedRepository}'`)
-    core.debug(`Hey there..`)
     var splitRepository = qualifiedRepository.split('/')
     if (
       splitRepository.length !== 2 ||
@@ -56,8 +55,7 @@ export function getInputs(): IGitSourceSettings[] {
         `Repository path '${result.repositoryPath}' is not under '${githubWorkspacePath}'`
       )
     }
-    var repoPath = result.repositoryPath
-    core.debug(`Custom Repository Path: '${repoPath}'`)
+    core.debug(`Custom Repository Path: '${result.repositoryPath}'`)
 
     // Workflow repository?
     var isWorkflowRepository =
