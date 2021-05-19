@@ -40,8 +40,8 @@ export function getInputs(): IGitSourceSettings[] {
     result.repositoryName = splitRepository[1]
 
     // Repository path
-    result.repositoryPath = core.getInput('path') || '.'
-    result.repositoryPath = result.repositoryPath + result.repositoryName
+    var parentRepositoryPath = core.getInput('path') || '.'
+    result.repositoryPath = parentRepositoryPath + splitRepository[1]
     result.repositoryPath = path.resolve(
       githubWorkspacePath,
       result.repositoryPath
