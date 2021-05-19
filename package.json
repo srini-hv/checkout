@@ -2,9 +2,10 @@
   "name": "checkout",
   "version": "2.0.2",
   "description": "checkout action",
-  "main": "lib/main.js",
+  "main": "src/main.ts",
   "scripts": {
-    "build": "tsc && ncc build && node lib/misc/generate-docs.js",
+    "build": "tsc && ncc build",
+    "package": "ncc build --source-map --license licenses.txt",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "eslint src/**/*.ts",
