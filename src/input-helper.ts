@@ -41,6 +41,7 @@ export function getInputs(): IGitSourceSettings[] {
 
     // Repository path
     result.repositoryPath = core.getInput('path') || '.'
+    result.repositoryPath = result.repositoryPath + repo
     result.repositoryPath = path.resolve(
       githubWorkspacePath,
       result.repositoryPath
