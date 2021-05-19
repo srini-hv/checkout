@@ -55,7 +55,8 @@ export function getInputs(): IGitSourceSettings[] {
         `Repository path '${result.repositoryPath}' is not under '${githubWorkspacePath}'`
       )
     }
-    core.debug(`Custom Repository Path: '${result.repositoryPath}'`)
+    var repoPath = result.repositoryPath
+    core.debug(`Custom Repository Path: '${repoPath}'`)
 
     // Workflow repository?
     var isWorkflowRepository =
