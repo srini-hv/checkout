@@ -10,11 +10,11 @@ export function getInputs(): IGitSourceSettings[] {
   var repositoriesSettingsList = new Array<IGitSourceSettings>()
   var repositories = core.getInput('repositories')
   core.debug(`Repositories = '${repositories}'`)
-  var repositoriesList = repositories.split("\n")
-  //var repositoriesYaml = yaml.safeLoad(repositories)
-  core.debug(`Repositories List = '${repositoriesList}'`)
+  //var repositoriesList = repositories.split("\n")
+  var repositoriesYaml = yaml.safeLoad(repositories)
+  core.debug(`Repositories List = '${repositoriesYaml}'`)
 
-  for(let repo of repositoriesList){
+  for(let repo of repositoriesYaml){
     var result = ({} as unknown) as IGitSourceSettings
     core.debug(`Downloading repo = '${repo}'`)
     // GitHub workspace
