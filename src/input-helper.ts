@@ -3,12 +3,14 @@ import * as fsHelper from './fs-helper'
 import * as github from '@actions/github'
 import * as path from 'path'
 import {IGitSourceSettings} from './git-source-settings'
+import * as yaml from 'js-yaml'
 
 export function getInputs(): IGitSourceSettings[] {
 
   var repositoriesSettingsList = new Array<IGitSourceSettings>()
   var repositories = core.getInput('repositories')
-  var repositoriesList = repositories.split(",")
+  var repositoriesList = repositories.split("\n")
+  //var repositoriesYaml = yaml.safeLoad(repositories)
   core.debug(`Repositories List = '${repositoriesList}'`)
 
   for(let repo of repositoriesList){
@@ -24,7 +26,9 @@ export function getInputs(): IGitSourceSettings[] {
     fsHelper.directoryExistsSync(githubWorkspacePath, true)
 
     // Qualified repository
-    var qualifiedRepository = repo
+    // Removing "- " from the repo name
+    
+    var qualifiedRepository = repo.substring(3)
     core.debug(`qualified repository = '${qualifiedRepository}'`)
     var splitRepository = qualifiedRepository.split('/')
     if (
