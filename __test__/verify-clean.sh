@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "$(git -C ./basic status --porcelain)" != "" ]]; then
+if [[ "$(git -C ./basic/checkout status --porcelain)" != "" ]]; then
     echo ----------------------------------------
     echo git status
     echo ----------------------------------------

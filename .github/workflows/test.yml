@@ -39,12 +39,12 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/basic
-          path: basic
+          path: basic/
       - name: Verify basic
         shell: bash
         run: |
           ls -ltr ./
-          ls -ltr ./basiccheckout/
+          ls -ltr ./basic/checkout/
           __test__/verify-basic.sh
 
       # Clean
@@ -55,7 +55,7 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/basic
-          path: basic
+          path: basic/
       - name: Verify clean
         shell: bash
         run: __test__/verify-clean.sh
@@ -134,7 +134,7 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/basic
-          path: basic
+          path: basic/
       - name: Verify basic
         run: __test__/verify-basic.sh --archive
 
@@ -160,7 +160,7 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/basic
-          path: basic
+          path: basic/
       - name: Verify basic
         run: __test__/verify-basic.sh
 
@@ -173,7 +173,7 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/basic
-          path: basic
+          path: basic/
       - name: Verify basic
         run: __test__/verify-basic.sh --archive
 
@@ -192,7 +192,7 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/basic
-          path: basic
+          path: basic/
       - name: Verify basic
         run: __test__/verify-basic.sh
       - name: Remove basic
@@ -205,6 +205,6 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/basic
-          path: basic
+          path: basic/
       - name: Verify basic
         run: __test__/verify-basic.sh --archive
