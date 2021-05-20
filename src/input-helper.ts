@@ -9,6 +9,7 @@ export function getInputs(): IGitSourceSettings[] {
 
   var repositoriesSettingsList = new Array<IGitSourceSettings>()
   var repositories = core.getInput('repositories')
+  core.debug(`Repositories = '${repositories}'`)
   var repositoriesList = repositories.split("\n")
   //var repositoriesYaml = yaml.safeLoad(repositories)
   core.debug(`Repositories List = '${repositoriesList}'`)
@@ -27,7 +28,7 @@ export function getInputs(): IGitSourceSettings[] {
 
     // Qualified repository
     // Removing "- " from the repo name
-    
+
     var qualifiedRepository = repo.substring(3)
     core.debug(`qualified repository = '${qualifiedRepository}'`)
     var splitRepository = qualifiedRepository.split('/')
