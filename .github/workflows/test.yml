@@ -42,7 +42,10 @@ jobs:
           path: basic
       - name: Verify basic
         shell: bash
-        run: __test__/verify-basic.sh
+        run: |
+          ls -ltr ./
+          ls -ltr ./basic/
+          __test__/verify-basic.sh
 
       # Clean
       - name: Modify work tree
