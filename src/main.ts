@@ -19,7 +19,7 @@ async function run(): Promise<void> {
       )
 
       // Get sources
-      for(var sourceSettings of sourceSettingsList){
+      for (var sourceSettings of sourceSettingsList) {
         await gitSourceProvider.getSource(sourceSettings)
       }
     } finally {

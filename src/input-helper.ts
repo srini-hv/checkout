@@ -6,7 +6,6 @@ import {IGitSourceSettings} from './git-source-settings'
 import * as yaml from 'js-yaml'
 
 export function getInputs(): IGitSourceSettings[] {
-
   var repositoriesSettingsList = new Array<IGitSourceSettings>()
   var repositories = core.getInput('repositories')
   core.debug(`Repositories = '${repositories}'`)
@@ -14,7 +13,7 @@ export function getInputs(): IGitSourceSettings[] {
   var repositoriesYaml = yaml.safeLoad(repositories)
   core.debug(`Repositories List = '${repositoriesYaml}'`)
 
-  for(let repo of repositoriesYaml){
+  for (let repo of repositoriesYaml) {
     var result = ({} as unknown) as IGitSourceSettings
     core.debug(`Downloading repo = '${repo}'`)
     // GitHub workspace
@@ -128,7 +127,7 @@ export function getInputs(): IGitSourceSettings[] {
     result.persistCredentials =
       (core.getInput('persist-credentials') || 'false').toUpperCase() === 'TRUE'
 
-      repositoriesSettingsList.push(result)  
+    repositoriesSettingsList.push(result)
   }
   return repositoriesSettingsList
 }
