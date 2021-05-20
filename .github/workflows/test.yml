@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           ls -ltr ./
-          ls -ltr ./basic/
+          ls -ltr ./basiccheckout/
           __test__/verify-basic.sh
 
       # Clean
