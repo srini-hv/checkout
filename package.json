@@ -4,7 +4,7 @@
   "description": "checkout action",
   "main": "src/main.ts",
   "scripts": {
-    "build": "tsc && ncc build",
+    "build": "tsc && ncc build && node dist/misc/generate-docs.js",
     "package": "ncc build --source-map --license licenses.txt",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
@@ -39,7 +39,7 @@
     "@types/node": "^12.7.12",
     "@types/uuid": "^3.4.6",
     "@typescript-eslint/parser": "^2.8.0",
-    "@zeit/ncc": "^0.20.5",
+    "@vercel/ncc": "^0.28.5",
     "eslint": "^5.16.0",
     "eslint-plugin-github": "^2.0.0",
     "eslint-plugin-jest": "^22.21.0",
