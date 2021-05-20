@@ -27,8 +27,6 @@ export function getInputs(): IGitSourceSettings[] {
     fsHelper.directoryExistsSync(githubWorkspacePath, true)
 
     // Qualified repository
-    // Removing "- " from the repo name
-
     var qualifiedRepository = repo
     core.debug(`qualified repository = '${qualifiedRepository}'`)
     var splitRepository = qualifiedRepository.split('/')

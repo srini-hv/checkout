@@ -1,4 +1,4 @@
-require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 9674:
@@ -35153,7 +35153,6 @@ function getInputs() {
         core.debug(`GITHUB_WORKSPACE = '${githubWorkspacePath}'`);
         directoryExistsSync(githubWorkspacePath, true);
         // Qualified repository
-        // Removing "- " from the repo name
         var qualifiedRepository = repo;
         core.debug(`qualified repository = '${qualifiedRepository}'`);
         var splitRepository = qualifiedRepository.split('/');
@@ -35297,4 +35296,3 @@ else {
 module.exports = __webpack_exports__;
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map
