@@ -65,12 +65,12 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/side-by-side-1
-          path: side-by-side-1
+          path: side-by-side-1/
       - name: Checkout side by side 2
         uses: ./
         with:
           ref: test-data/v2/side-by-side-2
-          path: side-by-side-2
+          path: side-by-side-2/
       - name: Verify side by side
         shell: bash
         run: __test__/verify-side-by-side.sh
@@ -81,7 +81,7 @@ jobs:
         with:
           repository: actions/checkout # hardcoded, otherwise doesn't work from a fork
           ref: test-data/v2/lfs
-          path: lfs
+          path: lfs/
           lfs: true
       - name: Verify LFS
         shell: bash
@@ -92,7 +92,7 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/submodule-ssh-url
-          path: submodules-false
+          path: submodules-false/
       - name: Verify submodules false
         run: __test__/verify-submodules-false.sh
 
@@ -101,7 +101,7 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/submodule-ssh-url
-          path: submodules-true
+          path: submodules-true/
           submodules: true
       - name: Verify submodules true
         run: __test__/verify-submodules-true.sh
@@ -111,7 +111,7 @@ jobs:
         uses: ./
         with:
           ref: test-data/v2/submodule-ssh-url
-          path: submodules-recursive
+          path: submodules-recursive/
           submodules: recursive
       - name: Verify submodules recursive
         run: __test__/verify-submodules-recursive.sh

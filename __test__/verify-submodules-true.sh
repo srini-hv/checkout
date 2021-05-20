@@ -1,22 +1,22 @@
 #!/bin/bash
 
-if [ ! -f "./checkout/submodules-true/regular-file.txt" ]; then
+if [ ! -f "./submodules-true/checkout/regular-file.txt" ]; then
     echo "Expected regular file does not exist"
     exit 1
 fi
 
-if [ ! -f "./checkout/submodules-true/submodule-level-1/submodule-file.txt" ]; then
+if [ ! -f "./submodules-true/checkout/submodule-level-1/submodule-file.txt" ]; then
     echo "Expected submodule file does not exist"
     exit 1
 fi
 
-if [ -f "./checkout/submodules-true/submodule-level-1/submodule-level-2/nested-submodule-file.txt" ]; then
+if [ -f "./submodules-true/checkout/submodule-level-1/submodule-level-2/nested-submodule-file.txt" ]; then
     echo "Unexpected nested submodule file exists"
     exit 1
 fi
 
 echo "Testing persisted credential"
-pushd ./checkout/submodules-true/submodule-level-1
+pushd ./submodules-true/checkout/submodule-level-1
 git config --local --name-only --get-regexp http.+extraheader && git fetch
 if [ "$?" != "0" ]; then
     echo "Failed to validate persisted credential"
