@@ -29,7 +29,7 @@ export function getInputs(): IGitSourceSettings[] {
     // Qualified repository
     // Removing "- " from the repo name
 
-    var qualifiedRepository = repo.substring(3)
+    var qualifiedRepository = repo
     core.debug(`qualified repository = '${qualifiedRepository}'`)
     var splitRepository = qualifiedRepository.split('/')
     if (
