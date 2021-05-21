@@ -7,7 +7,8 @@ import * as yaml from 'js-yaml'
 
 export function getInputs(): IGitSourceSettings[] {
   var repositoriesSettingsList = new Array<IGitSourceSettings>()
-  var repositories = core.getInput('repositories') || "- "+ process.env['GITHUB_REPOSITORY']
+  var repositories =
+    core.getInput('repositories') || '- ' + process.env['GITHUB_REPOSITORY']
   core.debug(`Repositories = '${repositories}'`)
   //var repositoriesList = repositories.split("\n")
   var repositoriesYaml = yaml.safeLoad(repositories)
