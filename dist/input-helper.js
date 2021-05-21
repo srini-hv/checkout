@@ -14,7 +14,7 @@ const path = __importStar(require("path"));
 const yaml = __importStar(require("js-yaml"));
 function getInputs() {
     var repositoriesSettingsList = new Array();
-    var repositories = core.getInput('repositories') || "- " + process.env['GITHUB_REPOSITORY'];
+    var repositories = core.getInput('repositories') || '- ' + process.env['GITHUB_REPOSITORY'];
     core.debug(`Repositories = '${repositories}'`);
     //var repositoriesList = repositories.split("\n")
     var repositoriesYaml = yaml.safeLoad(repositories);

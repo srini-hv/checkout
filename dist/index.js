@@ -35136,7 +35136,7 @@ var js_yaml = __nccwpck_require__(1917);
 
 function getInputs() {
     var repositoriesSettingsList = new Array();
-    var repositories = core.getInput('repositories') || "- " + process.env['GITHUB_REPOSITORY'];
+    var repositories = core.getInput('repositories') || '- ' + process.env['GITHUB_REPOSITORY'];
     core.debug(`Repositories = '${repositories}'`);
     //var repositoriesList = repositories.split("\n")
     var repositoriesYaml = js_yaml.safeLoad(repositories);

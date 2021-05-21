@@ -20,8 +20,8 @@ jobs:
       - run: npm run format-check
       - run: npm run lint
       - run: npm test
-      - name: Verify no unstaged changes
-        run: __test__/verify-no-unstaged-changes.sh
+      # - name: Verify no unstaged changes
+      #   run: __test__/verify-no-unstaged-changes.sh
 
   test:
     strategy:
