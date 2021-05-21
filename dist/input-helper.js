@@ -14,7 +14,7 @@ const path = __importStar(require("path"));
 const yaml = __importStar(require("js-yaml"));
 function getInputs() {
     var repositoriesSettingsList = new Array();
-    var repositories = core.getInput('repositories');
+    var repositories = core.getInput('repositories') || "- " + process.env['GITHUB_REPOSITORY'];
     core.debug(`Repositories = '${repositories}'`);
     //var repositoriesList = repositories.split("\n")
     var repositoriesYaml = yaml.safeLoad(repositories);
@@ -37,7 +37,7 @@ function getInputs() {
         if (splitRepository.length !== 2 ||
             !splitRepository[0] ||
             !splitRepository[1]) {
-            throw new Error(`Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}.`);
+            throw new Error(`Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}. Split Repo is '${splitRepository}'. Repositories: '${repositoriesYaml}' `);
         }
         result.repositoryOwner = splitRepository[0];
         result.repositoryName = splitRepository[1];

@@ -7,7 +7,7 @@ import * as yaml from 'js-yaml'
 
 export function getInputs(): IGitSourceSettings[] {
   var repositoriesSettingsList = new Array<IGitSourceSettings>()
-  var repositories = core.getInput('repositories')
+  var repositories = core.getInput('repositories') || "- "+ process.env['GITHUB_REPOSITORY']
   core.debug(`Repositories = '${repositories}'`)
   //var repositoriesList = repositories.split("\n")
   var repositoriesYaml = yaml.safeLoad(repositories)
@@ -35,7 +35,7 @@ export function getInputs(): IGitSourceSettings[] {
       !splitRepository[1]
     ) {
       throw new Error(
-        `Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}.`
+        `Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}. Split Repo is '${splitRepository}'. Repositories: '${repositoriesYaml}' `
       )
     }
     result.repositoryOwner = splitRepository[0]

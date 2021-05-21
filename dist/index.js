@@ -35136,7 +35136,7 @@ var js_yaml = __nccwpck_require__(1917);
 
 function getInputs() {
     var repositoriesSettingsList = new Array();
-    var repositories = core.getInput('repositories');
+    var repositories = core.getInput('repositories') || "- " + process.env['GITHUB_REPOSITORY'];
     core.debug(`Repositories = '${repositories}'`);
     //var repositoriesList = repositories.split("\n")
     var repositoriesYaml = js_yaml.safeLoad(repositories);
@@ -35159,7 +35159,7 @@ function getInputs() {
         if (splitRepository.length !== 2 ||
             !splitRepository[0] ||
             !splitRepository[1]) {
-            throw new Error(`Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}.`);
+            throw new Error(`Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}. Split Repo is '${splitRepository}'. Repositories: '${repositoriesYaml}' `);
         }
         result.repositoryOwner = splitRepository[0];
         result.repositoryName = splitRepository[1];
